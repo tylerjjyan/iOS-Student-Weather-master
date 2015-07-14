@@ -38,8 +38,8 @@
     UINavigationController *torontoNC = [[UINavigationController alloc] initWithRootViewController:torontoVC];
     
     NSArray* controllers = @[
-                             vancouverNC,
                              edmontonNC,
+                             vancouverNC,
                              calgaryNC,
                              montrealNC,
                              torontoNC
