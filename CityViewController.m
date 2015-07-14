@@ -32,20 +32,28 @@
 {
     self = [super init];
     if (self) {
-        _cityName = city;
-        _title = city.name;
-        _view.backgroundColor = [UIColor whiteColor];
-        UILabel *weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 200, 50)];
+        self.cityName = city;
+        self.title = city.name;
+        self.view.backgroundColor = [UIColor whiteColor];
+        UILabel *weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width /2.2, self.view.frame.size.height / 2, 150, 50)];
         weatherLabel.text = city.weather;
         [self.view addSubview:weatherLabel];
         
     
+        UIBarButtonItem *detailedButton = [[UIBarButtonItem alloc] initWithTitle:@"Details" style:UIBarButtonItemStyleBordered target:self action:@selector(showWeatherDetails)];
         
-        
-        
+        self.navigationItem.rightBarButtonItem = detailedButton;
         
     }
     return self;
+}
+
+
+-(void)showWeatherDetails{
+    DetailedViewController *detailedViewController = [[DetailedViewController alloc] init];
+    detailedViewController.city = self.cityName;
+    [self showViewController:detailedViewController sender:self];
+    
 }
 
 

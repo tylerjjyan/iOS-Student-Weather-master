@@ -10,12 +10,27 @@
 
 @interface DetailedViewController ()
 
+
 @end
 
 @implementation DetailedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    UILabel *weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width /2.2, 100, 150, 50)];
+    UILabel *humidityLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width /2.2, 150, 150, 50)];
+    UILabel *precipitationLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width /2.2, 200, 150, 50)];
+    
+    weatherLabel.text = self.city.weather;
+    humidityLabel.text = self.city.humidity;
+    precipitationLabel.text = self.city.precipitation;
+    
+    [self.view addSubview:weatherLabel];
+    [self.view addSubview:humidityLabel];
+    [self.view addSubview:precipitationLabel];
+    
+    
     // Do any additional setup after loading the view.
 }
 

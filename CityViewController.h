@@ -14,6 +14,8 @@
 @property (nonatomic) City *cityName;
 
 - (instancetype)initWithCity:(City*)city;
+-(void)showWeatherDetails;
+
 
 
 

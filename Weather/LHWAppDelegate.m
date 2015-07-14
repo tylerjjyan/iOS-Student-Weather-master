@@ -21,7 +21,7 @@
     City *Montreal = [[City alloc] initWithName:@"Montreal" withWeather:@"Rain" withHumidity:@"Humidity: 40%"  withPrecipitation:@"Precipitation: 45%"];
     City *Toronto = [[City alloc] initWithName:@"Toronto" withWeather:@"Smoke" withHumidity:@"Humidity: 46%"  withPrecipitation:@"Precipitation: 37%"];
     
-    _window = [[UIWindow alloc] init];
+    self.window = [[UIWindow alloc] init];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
    
@@ -37,26 +37,18 @@
     UINavigationController *montrealNC = [[UINavigationController alloc] initWithRootViewController:montrealVC];
     UINavigationController *torontoNC = [[UINavigationController alloc] initWithRootViewController:torontoVC];
     
-    tabBarController.viewControllers = @[
-                                         vancouverNC,
-                                         edmontonNC,
-                                         calgaryNC,
-                                         montrealNC,
-                                         torontoNC,
-                                         ];
+    NSArray* controllers = @[
+                             vancouverNC,
+                             edmontonNC,
+                             calgaryNC,
+                             montrealNC,
+                             torontoNC
+                             ];
+      
+    [tabBarController setViewControllers:controllers];
     
-//    NSArray* controllers = @[
-//                             vancouverNC,
-//                             edmontonNC,
-//                             calgaryNC,
-//                             montrealNC,
-//                             torontoNC
-//                             ];
-//      
-//    [tabBarController setViewControllers:controllers];
-    
-    [_window setRootViewController:tabBarController];
-    [_window makeKeyAndVisible];
+    [self.window setRootViewController:tabBarController];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

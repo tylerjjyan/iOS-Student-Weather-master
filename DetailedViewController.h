@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
 
 @interface DetailedViewController : UIViewController
+@property (nonatomic) City *city;
 
 @end
